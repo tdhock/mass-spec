@@ -1,0 +1,8 @@
+** TODOS
+
+Fix bugs in min-less computation.
+
+** 15 Nov 2016
+
+[[file:five.samples.R]] reads five samples and computes the target
+interval using the PeakSegFPOP command line program.
