@@ -46,8 +46,13 @@ for(sample.id in names(by.sample)){
     start=sprintf("%d", pos.vec[-length(pos.vec)]),
     end=sprintf("%d", pos.vec[-1]),
     count=not.same.as.prev$count)
+  out.df <- data.frame(
+    chromStart=pos.vec[-length(pos.vec)],
+    chromEnd=pos.vec[-1],
+    count=as.integer(not.same.as.prev$count))
+  fit <- PeakSegFPOPchrom(out.df, 0)
   out.dir <- file.path("problems", sample.id)
-  out.bg <- sprintf(out.dir, "coverage.bedGraph")
+  out.bg <- file.path(out.dir, "coverage.bedGraph")
   dir.create(out.dir, showWarnings=FALSE, recursive=TRUE)
   fwrite(out.dt, out.bg, sep="\t", col.names=FALSE)
   problem <- out.dt[, data.table(
@@ -57,3 +62,4 @@ for(sample.id in names(by.sample)){
   fwrite(problem, file.path(out.dir, "problem.bed"), sep="\t", col.names=FALSE)
   problem.target(out.dir)
 }
+
