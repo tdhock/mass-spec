@@ -1,6 +1,12 @@
-** TODOS
+** 16 Nov 2016
 
-Fix bugs in min-less computation.
+PeakSeg model is not appropriate for mass-spec data, since it only can
+recover 80-100 peaks before equality constraints start becoming
+active (there should be about 15,000 peaks).
+
+[[file:figure-205-209-segments.pdf]]
+
+[[file:figure-205-209-segments-zoom.pdf]]
 
 ** 15 Nov 2016
 
